@@ -1,7 +1,27 @@
-# jubilant-sniffle
+# Project
 
-A development project with various utilities and tools.
+## Update 8
 
-## Getting Started
+This project includes various utilities and tools.
 
-This project contains scripts, utilities, and small applications.
+### Features
+
+- Feature 8
+- Utility functions
+- Configuration management
+
+### Installation
+
+\`\`\`bash
+npm install
+\`\`\`
+
+### Usage
+
+\`\`\`javascript
+const utils = require('./src/utils');
+\`\`\`
+
+### Changelog
+
+- Update 8: Added new features and improvements
