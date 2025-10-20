@@ -25,3 +25,8 @@ const utils = require('./src/utils');
 ### Changelog
 
 - Update 8: Added new features and improvements
+
+
+## Update 20
+
+Added new features and improvements in update 20.
