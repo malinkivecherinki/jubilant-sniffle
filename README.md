@@ -30,3 +30,8 @@ const utils = require('./src/utils');
 ## Update 39
 
 Added new features and improvements in update 39.
+
+
+## Update 41
+
+Added new features and improvements in update 41.
