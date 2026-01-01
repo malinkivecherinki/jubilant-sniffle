@@ -1,26 +1,42 @@
-#!/usr/bin/env python3
 """
-Utility module 4 script for data processing.
+Jubilant Sniffle - Feature Enhancement
 """
 
-import json
-import sys
+def process_data(data):
+    """Process and validate input data"""
+    if not data:
+        raise ValueError("Data cannot be empty")
+    
+    processed = []
+    for item in data:
+        if isinstance(item, dict):
+            processed.append(validate_item(item))
+        else:
+            processed.append(str(item).strip())
+    
+    return processed
 
-def process_data_4(input_data):
-    """Process input data."""
-    if isinstance(input_data, str):
-        return input_data.upper()
-    elif isinstance(input_data, dict):
-        return {k.upper(): v for k, v in input_data.items()}
-    return input_data
+def validate_item(item):
+    """Validate individual item structure"""
+    required_fields = ['id', 'name']
+    for field in required_fields:
+        if field not in item:
+            raise ValueError(f"Missing required field: {field}")
+    return item
 
-if __name__ == "__main__":
-    data = sys.argv[1] if len(sys.argv) > 1 else "default"
-    result = process_data_4(data)
-    print(json.dumps(result, indent=2))
-
-
-# Update 7
-def new_function_7():
-    """New function added in update 7."""
-    return 7
+class DataProcessor:
+    """Main data processing class"""
+    
+    def __init__(self, config=None):
+        self.config = config or {}
+        self.cache = {}
+    
+    def process(self, data):
+        """Main processing method"""
+        cache_key = hash(str(data))
+        if cache_key in self.cache:
+            return self.cache[cache_key]
+        
+        result = process_data(data)
+        self.cache[cache_key] = result
+        return result
